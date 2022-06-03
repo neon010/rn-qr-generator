@@ -68,8 +68,8 @@ const App: () => React$Node = () => {
 
   const onPick = () => {
     launchImageLibrary(options, (response) => {
-      setDetectImageUri({uri: response.uri});
-      RNQRGenerator.detect({uri: response.uri})
+      setDetectImageUri({uri: response.assets[0].uri});
+      RNQRGenerator.detect({uri: response.assets[0].uri})
         .then((res) => {
           console.log('Detected', res);
           if (res.values.length === 0) {
